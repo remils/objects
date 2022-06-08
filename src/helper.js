@@ -12,10 +12,10 @@ export const objects = Array.from({ length: 1000 }, (value, key) => ({
 
 export function objectsRandomStatus() {
     return [...objects]
-        .sort(function () {
+        .sort(() => {
             return Math.random() > 0.5 ? 1 : -1;
         })
-        .map(function (object) {
+        .map((object) => {
             return {
                 ...object,
                 status: randomStatus(['открыто', 'закрыто', 'тревога']),

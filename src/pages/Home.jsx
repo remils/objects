@@ -12,9 +12,7 @@ export default function Home() {
 
     const channel = objectChannel();
 
-    const queue = useQueue(function (items) {
-        dispatch(updateObjects(items));
-    });
+    const queue = useQueue((items) => dispatch(updateObjects(items)));
 
     useEffect(() => {
         objectsRequest().then((items) => dispatch(objects(items)));

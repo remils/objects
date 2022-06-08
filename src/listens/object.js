@@ -5,7 +5,7 @@ export function objectChannel() {
 
     return {
         listen(callback) {
-            setInterval(function () {
+            pid = setInterval(() => {
                 objectsRandomStatus().forEach(callback);
             }, 5000);
         },

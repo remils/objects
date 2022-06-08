@@ -1,22 +1,22 @@
 export default function useQueue(callback, timeout = 500, maxCount = 500) {
     let pid = null,
-        queue = [];
+        items = [];
 
     return {
         addQueue(item) {
             clearTimeout(pid);
 
-            queue.push(item);
+            items.push(item);
 
-            if (queue.length >= maxCount) {
-                callback(queue);
+            if (items.length >= maxCount) {
+                callback(items);
 
-                queue = [];
+                items = [];
             } else {
-                pid = setTimeout(function () {
-                    callback(queue);
+                pid = setTimeout(() => {
+                    callback(items);
 
-                    queue = [];
+                    items = [];
 
                     clearTimeout(pid);
                 }, timeout);
